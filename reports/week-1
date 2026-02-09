@@ -1,0 +1,9 @@
+# Report 2026-02-09
+
+Tento týždeň som pracoval na návrhu projektu pre webovú aplikáciu. Cieľom projektu je vytvoriť jednoduchú chatovaciu aplikáciu podobnú Discordu.
+
+Najskôr som si premyslel, aké funkcie by mala aplikácia obsahovať. Používateľ sa bude môcť zaregistrovať a prihlásiť, vytvárať servery, pridávať sa do serverov a komunikovať v textových kanáloch. Súčasťou aplikácie bude aj možnosť posielať súbory.
+
+Následne som navrhol databázu pre túto aplikáciu. Databázový návrh obsahuje tabuľky pre používateľov, profily, servery, kanály, správy a súbory. V databáze sú použité rôzne typy vzťahov, ako napríklad jeden k jednému, jeden k viacerým a viac k viacerým.
+
+Databáza je navrhnutá tak, aby bola prehľadná a zrozumiteľná a aby bola vhodná pre školský projekt. Tento návrh bude v ďalších týždňoch slúžiť ako základ pre implementáciu backendu a frontendu aplikácie.
