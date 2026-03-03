@@ -1,0 +1,44 @@
+
+## Funkcie aplikácie
+
+**Základné:**
+- Registrácia a prihlásenie užívateľov
+- Vytvorenie serverov s vlastnou ikonou
+- Automatické vytvorenie "general" kanála pri novom serveri
+- Posielanie textových správ
+- Zobrazenie zoznamu serverov a kanálov
+
+**Pokročilé:**
+- Nahrávanie súborov (drag & drop nie je, ale file picker áno)
+- Zobrazenie obrázkov a GIFov priamo v chate
+- Video prehrávač pre MP4 súbory s controls (play, pause, fullscreen)
+- Download linky pre ostatné typy súborov (PDF, ZIP...)
+- Mazanie vlastných správ s potvrdením
+- Hover efekty a animácie
+
+## Testové dáta
+
+Vytvoril som seed script (`npm run seed`), ktorý naplní databázu fake dátami:
+- 8 užívateľov (Admin, Jožko, Marika, Peťo, Evka, Miško, Zuza, Dávid)
+- 4 servery s rôznymi témami (💬 Všeobecný Chat, 🎮 Gaming Squad, 📚 Študentský Server, 🎉 Priatelia)
+- 16 kanálov (po 4 v každom serveri)
+- ~160 správ od rôznych fake užívateľov
+
+Testovací účet: admin@talkspace.sk / admin123
+
+## Technické riešenia
+
+- Session-based autentifikácia (sessionId v localStorage + X-Session-Id header)
+- FormData pre upload súborov (multipart/form-data)
+- Axios interceptors pre automatické pridávanie session ID
+- SQLite ALTER TABLE pre pridanie nových stĺpcov bez straty dát
+- Conditional rendering v Vue (v-if) pre zobrazenie obrázkov vs videí vs download linkov
+- MIME type detection (image/*, video/*) pre správne zobrazenie príloh
+
+## Problémy a riešenia
+
+1. **TypeScript errory** - Chýbajúce type definície pre Hono context, vyriešené vytvorením types.ts s AppVariables interface
+2. **Port konflikty** - Node procesy ostávali bežať na pozadí, riešené cez Stop-Process -Force
+3. **FormData parsing** - Backend nesprávne parsoval content z FormData, opravené pridaním .trim() a správnou validáciou
+4. **File upload UX** - Pridané vizuálne indikátory (zelený checkmark) keď sa súbor nahrá
+
